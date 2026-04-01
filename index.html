@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Optima Technologies — Professional IT & CCTV Specialist Kenya</title>
+<meta name="description" content="Professional IT Technician & CCTV Specialist in Kenya. CCTV installation, computer repair, software support & system upgrades. Call +254724310971">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue:#0f52ba;--blue-lt:#1a6fe8;--blue-dk:#0a3a8a;--cyan:#00b4d8;
+  --dark:#0a0f1e;--dark2:#111827;--white:#fff;--off:#f8faff;
+  --muted:#6b7280;--border:#e2e8f0;--radius:12px;
+  --shadow:0 4px 24px rgba(15,82,186,.10);
+  --shadow-lg:0 12px 48px rgba(15,82,186,.18);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:#fff;color:var(--dark);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+h1,h2,h3,h4{font-family:'Syne',sans-serif;line-height:1.15}
+.container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideRight{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:translateX(0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(15,82,186,.4)}70%{box-shadow:0 0 0 12px rgba(15,82,186,0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes scan{0%{top:0}100%{top:100%}}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.vis{opacity:1;transform:translateY(0)}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 0;transition:all .3s}
+.nav.scrolled{background:rgba(255,255,255,.97);backdrop-filter:blur(20px);box-shadow:0 2px 20px rgba(0,0,0,.08);padding:.75rem 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.nav-logo{display:flex;align-items:center;gap:.625rem}
+.nav-logo img{height:38px;width:auto;object-fit:contain}
+.nav-links{display:none}
+@media(min-width:1024px){.nav-links{display:flex;align-items:center;gap:.25rem}}
+.nav-link{padding:.5rem .875rem;font-size:.875rem;font-weight:500;color:var(--dark);border-radius:8px;transition:all .2s;cursor:pointer}
+.nav-link:hover,.nav-link.active{color:var(--blue);background:rgba(15,82,186,.07)}
+.nav-cta{background:var(--blue);color:#fff;padding:.625rem 1.5rem;border-radius:999px;font-size:.875rem;font-weight:600;transition:all .2s;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:.375rem}
+.nav-cta:hover{background:var(--blue-lt);transform:translateY(-1px);box-shadow:var(--shadow)}
+.hamburger{display:flex;flex-direction:column;gap:5px;padding:.5rem;cursor:pointer;border:none;background:none}
+@media(min-width:1024px){.hamburger{display:none}}
+.hamburger span{display:block;width:22px;height:2px;background:var(--dark);border-radius:2px;transition:.3s}
+.mob-nav{position:fixed;inset:0;background:#fff;z-index:999;display:flex;flex-direction:column;padding:2rem;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1)}
+.mob-nav.open{transform:translateX(0)}
+.mob-close{align-self:flex-end;width:40px;height:40px;background:var(--off);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;border:none;margin-bottom:2.5rem}
+.mob-link{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:700;color:var(--dark);padding:.75rem 0;border-bottom:1px solid var(--border);display:block;transition:color .2s}
+.mob-link:hover{color:var(--blue)}
+.mob-cta{margin-top:2rem;background:var(--blue);color:#fff;padding:1rem 2rem;border-radius:999px;font-weight:600;text-align:center;display:block}
+
+/* ── HERO ── */
+.hero{min-height:100vh;background:linear-gradient(135deg,#f0f6ff 0%,#e8f0fe 40%,#f8faff 100%);display:flex;align-items:center;padding:7rem 0 4rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-10%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(15,82,186,.08) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-10%;left:-5%;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(0,180,216,.06) 0%,transparent 70%);pointer-events:none}
+/* Hero circuit pattern */
+.hero-bg-pattern{position:absolute;inset:0;opacity:.03;background-image:repeating-linear-gradient(0deg,transparent,transparent 40px,var(--blue) 40px,var(--blue) 41px),repeating-linear-gradient(90deg,transparent,transparent 40px,var(--blue) 40px,var(--blue) 41px);pointer-events:none}
+.hero-grid{display:grid;gap:3rem;align-items:center;position:relative;z-index:1}
+@media(min-width:1024px){.hero-grid{grid-template-columns:1fr 1fr;gap:4rem}}
+.hero-content{animation:fadeUp .8s .1s both}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(15,82,186,.1);color:var(--blue);padding:.375rem 1rem;border-radius:999px;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.25rem;border:1px solid rgba(15,82,186,.2)}
+.hero-badge-dot{width:.5rem;height:.5rem;border-radius:50%;background:var(--blue);animation:pulse 2s infinite}
+.hero-title{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;color:var(--dark);line-height:1.1;margin-bottom:1rem}
+.hero-title span{color:var(--blue);position:relative}
+.hero-title span::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--cyan));border-radius:2px}
+.hero-tagline{font-size:1.125rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.7;max-width:480px}
+.hero-contact{display:flex;align-items:center;gap:.625rem;font-size:1rem;font-weight:600;color:var(--blue);margin-bottom:2rem}
+.hero-contact svg{width:1.125rem;height:1.125rem;stroke:var(--blue);fill:none;stroke-width:2;stroke-linecap:round}
+.hero-actions{display:flex;gap:.875rem;flex-wrap:wrap}
+.btn-primary{background:var(--blue);color:#fff;padding:.875rem 2rem;border-radius:999px;font-weight:600;font-size:.9375rem;transition:all .2s;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem;box-shadow:0 8px 24px rgba(15,82,186,.35)}
+.btn-primary:hover{background:var(--blue-lt);transform:translateY(-2px);box-shadow:0 12px 32px rgba(15,82,186,.4)}
+.btn-outline{background:transparent;color:var(--blue);padding:.875rem 2rem;border-radius:999px;font-weight:600;font-size:.9375rem;transition:all .2s;border:2px solid var(--blue);cursor:pointer;display:inline-flex;align-items:center;gap:.5rem}
+.btn-outline:hover{background:var(--blue);color:#fff;transform:translateY(-2px)}
+.btn-outline svg,.btn-primary svg{width:1rem;height:1rem;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.hero-visual{animation:fadeIn .8s .3s both;position:relative}
+.hero-img-wrap{position:relative;border-radius:24px;overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:4/5;max-width:420px;margin:0 auto}
+.hero-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.hero-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,82,186,.3) 0%,transparent 50%)}
+/* Scan effect on hero image */
+.hero-scan{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(0,180,216,.8),transparent);animation:scan 3s linear infinite;pointer-events:none}
+.hero-stats{position:absolute;bottom:-1.5rem;left:50%;transform:translateX(-50%);background:#fff;border-radius:16px;padding:1rem 1.5rem;box-shadow:var(--shadow-lg);display:flex;gap:2rem;white-space:nowrap;border:1px solid var(--border)}
+.hero-stat-val{font-family:'Syne',sans-serif;font-size:1.375rem;font-weight:800;color:var(--blue);line-height:1}
+.hero-stat-lbl{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:.2rem}
+/* Floating badge */
+.hero-float-badge{position:absolute;top:1.5rem;right:-1rem;background:var(--blue);color:#fff;border-radius:12px;padding:.625rem .875rem;font-size:.75rem;font-weight:700;box-shadow:var(--shadow-lg);animation:float 3s ease-in-out infinite;text-align:center;line-height:1.4}
+
+/* ── TRUST BAR ── */
+.trust-bar{background:var(--dark);padding:1.25rem 0}
+.trust-inner{display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:.625rem;color:rgba(255,255,255,.75);font-size:.875rem;font-weight:500}
+.trust-item svg{width:1rem;height:1rem;stroke:var(--cyan);fill:none;stroke-width:2;stroke-linecap:round;flex-shrink:0}
+
+/* ── SECTIONS ── */
+.sec{padding:5rem 0}
+@media(min-width:768px){.sec{padding:7rem 0}}
+.sec-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(15,82,186,.08);color:var(--blue);padding:.375rem .875rem;border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.875rem;border:1px solid rgba(15,82,186,.15)}
+.sec-title{font-size:clamp(1.75rem,3.5vw,2.5rem);font-weight:800;color:var(--dark);margin-bottom:.875rem;line-height:1.2}
+.sec-title span{color:var(--blue)}
+.sec-desc{color:var(--muted);max-width:540px;line-height:1.75;font-size:1rem}
+.sec-head{margin-bottom:3.5rem}
+.sec-head.center{text-align:center}
+.sec-head.center .sec-desc{margin:0 auto}
+
+/* ── ABOUT ── */
+.about-sec{background:var(--off)}
+.about-grid{display:grid;gap:3rem;align-items:center}
+@media(min-width:1024px){.about-grid{grid-template-columns:1fr 1fr;gap:5rem}}
+.about-img{position:relative}
+.about-img-main{border-radius:20px;overflow:hidden;aspect-ratio:4/5;box-shadow:var(--shadow-lg)}
+.about-img-main img{width:100%;height:100%;object-fit:cover;object-position:top}
+.about-exp-badge{position:absolute;bottom:1.5rem;left:-1.5rem;background:var(--blue);color:#fff;border-radius:16px;padding:1rem 1.25rem;box-shadow:var(--shadow-lg);text-align:center;line-height:1.3}
+.about-exp-num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800}
+.about-exp-lbl{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;opacity:.85}
+.about-cert{position:absolute;top:1.5rem;right:-1rem;background:#fff;border-radius:12px;padding:.75rem 1rem;box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:.625rem;font-size:.8rem;font-weight:600;color:var(--dark);border:1px solid var(--border)}
+.about-cert svg{width:1.25rem;height:1.25rem;stroke:var(--blue);fill:none;stroke-width:2;stroke-linecap:round}
+.about-content .sec-desc{margin-bottom:1.5rem}
+.about-list{display:flex;flex-direction:column;gap:.75rem;margin-bottom:2rem}
+.about-item{display:flex;align-items:flex-start;gap:.75rem;font-size:.9375rem;color:var(--dark)}
+.about-check{width:1.375rem;height:1.375rem;border-radius:50%;background:rgba(15,82,186,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.125rem}
+.about-check svg{width:.75rem;height:.75rem;stroke:var(--blue);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* ── SERVICES ── */
+.services-sec{background:#fff}
+.svc-grid{display:grid;gap:1.5rem;grid-template-columns:1fr}
+@media(min-width:640px){.svc-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.svc-grid{grid-template-columns:repeat(3,1fr)}}
+.svc-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all .3s;cursor:default}
+.svc-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:rgba(15,82,186,.2)}
+.svc-card-img{aspect-ratio:16/9;overflow:hidden;background:var(--off)}
+.svc-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.svc-card:hover .svc-card-img img{transform:scale(1.06)}
+.svc-card-body{padding:1.375rem}
+.svc-icon{width:2.5rem;height:2.5rem;border-radius:10px;background:rgba(15,82,186,.1);display:flex;align-items:center;justify-content:center;margin-bottom:.875rem;transition:background .3s}
+.svc-card:hover .svc-icon{background:var(--blue)}
+.svc-icon svg{width:1.125rem;height:1.125rem;stroke:var(--blue);fill:none;stroke-width:2;stroke-linecap:round;transition:stroke .3s}
+.svc-card:hover .svc-icon svg{stroke:#fff}
+.svc-card-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:.5rem}
+.svc-card-desc{font-size:.875rem;color:var(--muted);line-height:1.65}
+
+/* ── PROJECTS ── */
+.projects-sec{background:var(--off)}
+.proj-grid{display:grid;gap:1.5rem}
+@media(min-width:640px){.proj-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.proj-grid{grid-template-columns:repeat(3,1fr)}}
+.proj-card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:all .3s}
+.proj-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+.proj-img{position:relative;aspect-ratio:16/10;overflow:hidden}
+.proj-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.proj-card:hover .proj-img img{transform:scale(1.05)}
+.proj-tag{position:absolute;top:.75rem;left:.75rem;background:var(--blue);color:#fff;font-size:.7rem;font-weight:700;padding:.25rem .75rem;border-radius:999px}
+.proj-body{padding:1.25rem}
+.proj-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:.375rem}
+.proj-desc{font-size:.875rem;color:var(--muted);line-height:1.6}
+
+/* ── SKILLS ── */
+.skills-sec{background:#fff}
+.skills-grid{display:grid;gap:2rem}
+@media(min-width:768px){.skills-grid{grid-template-columns:1fr 1fr}}
+.skill-item{margin-bottom:.25rem}
+.skill-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.625rem}
+.skill-name{font-weight:600;font-size:.9375rem;color:var(--dark)}
+.skill-pct{font-size:.875rem;font-weight:700;color:var(--blue)}
+.skill-bar{height:8px;background:rgba(15,82,186,.1);border-radius:999px;overflow:hidden}
+.skill-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--blue),var(--cyan));width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
+
+/* ── TESTIMONIALS ── */
+.testi-sec{background:var(--dark);padding:5rem 0}
+@media(min-width:768px){.testi-sec{padding:7rem 0}}
+.testi-sec .sec-title{color:#fff}
+.testi-sec .sec-badge{background:rgba(255,255,255,.1);color:var(--cyan);border-color:rgba(255,255,255,.15)}
+.testi-grid{display:grid;gap:1.5rem}
+@media(min-width:768px){.testi-grid{grid-template-columns:repeat(3,1fr)}}
+.testi-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:1.75rem;transition:all .3s}
+.testi-card:hover{background:rgba(255,255,255,.1);border-color:rgba(15,82,186,.4)}
+.testi-stars{display:flex;gap:.25rem;margin-bottom:1rem}
+.testi-stars span{color:#f59e0b;font-size:1rem}
+.testi-text{font-size:.9375rem;color:rgba(255,255,255,.8);line-height:1.7;margin-bottom:1.25rem;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:.75rem}
+.testi-avatar{width:2.5rem;height:2.5rem;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--cyan));display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:.875rem;color:#fff;flex-shrink:0}
+.testi-name{font-weight:600;color:#fff;font-size:.9rem}
+.testi-role{font-size:.78rem;color:rgba(255,255,255,.5)}
+
+/* ── CONTACT ── */
+.contact-sec{background:var(--off)}
+.contact-grid{display:grid;gap:3rem}
+@media(min-width:1024px){.contact-grid{grid-template-columns:1fr 1fr;gap:4rem}}
+.contact-info-title{font-size:1.5rem;font-weight:800;color:var(--dark);margin-bottom:1rem}
+.contact-info-desc{color:var(--muted);line-height:1.75;margin-bottom:2rem}
+.contact-details{display:flex;flex-direction:column;gap:1.25rem}
+.c-row{display:flex;align-items:flex-start;gap:.875rem}
+.c-icon{width:2.75rem;height:2.75rem;border-radius:12px;background:rgba(15,82,186,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.c-icon svg{width:1.125rem;height:1.125rem;stroke:var(--blue);fill:none;stroke-width:2;stroke-linecap:round}
+.c-lbl{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-weight:600;margin-bottom:2px}
+.c-val{font-size:.9375rem;font-weight:600;color:var(--dark)}
+.c-val a:hover{color:var(--blue)}
+.whatsapp-btn{display:inline-flex;align-items:center;gap:.625rem;background:#25d366;color:#fff;padding:.875rem 1.75rem;border-radius:999px;font-weight:700;font-size:.9375rem;transition:all .2s;margin-top:1.5rem;box-shadow:0 8px 24px rgba(37,211,102,.3)}
+.whatsapp-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(37,211,102,.4)}
+.contact-form{background:#fff;border-radius:20px;padding:2rem;box-shadow:var(--shadow)}
+.form-group{margin-bottom:1.25rem}
+.form-label{display:block;font-size:.8rem;font-weight:600;color:var(--dark);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.5rem}
+.form-ctrl{width:100%;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:10px;background:#fff;color:var(--dark);font-size:.9375rem;font-family:'Outfit',sans-serif;outline:none;transition:all .2s}
+.form-ctrl:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(15,82,186,.1)}
+.form-row{display:grid;gap:1rem}
+@media(min-width:600px){.form-row{grid-template-columns:1fr 1fr}}
+.form-success{background:#f0fdf4;color:#166534;padding:1rem;border-radius:10px;font-size:.875rem;font-weight:600;display:none;margin-bottom:1rem}
+.form-success.show{display:block}
+
+/* ── FLOATING WHATSAPP ── */
+.float-wa{position:fixed;bottom:1.75rem;right:1.75rem;z-index:99;width:3.5rem;height:3.5rem;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.5);transition:all .2s;animation:pulse 2.5s infinite}
+.float-wa:hover{transform:scale(1.1)}
+.float-wa svg{width:1.75rem;height:1.75rem;fill:#fff}
+
+/* ── FOOTER ── */
+.footer{background:var(--dark);padding:3.5rem 0 1.5rem}
+.footer-grid{display:grid;gap:2.5rem;margin-bottom:2.5rem}
+@media(min-width:640px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.footer-grid{grid-template-columns:2fr 1fr 1fr}}
+.footer-logo{display:flex;align-items:center;gap:.625rem;margin-bottom:.875rem}
+.footer-logo img{height:36px;filter:brightness(0) invert(1)}
+.footer-desc{font-size:.875rem;color:rgba(255,255,255,.55);line-height:1.7;max-width:280px}
+.footer-col-h{font-family:'Syne',sans-serif;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.9);margin-bottom:1rem}
+.footer-links{display:flex;flex-direction:column;gap:.5rem}
+.footer-lnk{font-size:.875rem;color:rgba(255,255,255,.55);transition:color .2s;cursor:pointer}
+.footer-lnk:hover{color:var(--cyan)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-copy{font-size:.75rem;color:rgba(255,255,255,.4)}
+.footer-links-row{display:flex;gap:1.5rem}
+.footer-links-row a{font-size:.75rem;color:rgba(255,255,255,.4);transition:color .2s}
+.footer-links-row a:hover{color:var(--cyan)}
+
+/* ── SCROLL TOP ── */
+.scroll-top{position:fixed;bottom:5.5rem;right:1.75rem;z-index:99;width:2.75rem;height:2.75rem;border-radius:50%;background:var(--blue);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(10px);transition:all .3s;box-shadow:var(--shadow)}
+.scroll-top.show{opacity:1;transform:translateY(0)}
+.scroll-top svg{width:1.125rem;height:1.125rem;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo.png" alt="Optima Technologies">
+      </a>
+      <ul class="nav-links">
+        <li><a class="nav-link active" href="index.html">Home</a></li>
+        <li><a class="nav-link" href="#about">About</a></li>
+        <li><a class="nav-link" href="#services">Services</a></li>
+        <li><a class="nav-link" href="#projects">Projects</a></li>
+        <li><a class="nav-link" href="shop.html">Shop</a></li>
+        <li><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+      <div style="display:flex;align-items:center;gap:.75rem">
+        <a href="tel:+254724310971" class="nav-cta">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Hire Me
+        </a>
+        <button class="hamburger" onclick="openMob()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mob-nav" id="mobNav">
+  <button class="mob-close" onclick="closeMob()">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="index.html" class="mob-link">Home</a>
+  <a href="#about" class="mob-link" onclick="closeMob()">About</a>
+  <a href="#services" class="mob-link" onclick="closeMob()">Services</a>
+  <a href="#projects" class="mob-link" onclick="closeMob()">Projects</a>
+  <a href="shop.html" class="mob-link">Shop</a>
+  <a href="contact.html" class="mob-link">Contact</a>
+  <a href="tel:+254724310971" class="mob-cta">📞 Call Now</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg-pattern"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Available for hire · Nairobi, Kenya
+        </div>
+        <h1 class="hero-title">
+          Professional IT<br>Technician &amp;<br><span>CCTV Specialist</span>
+        </h1>
+        <p class="hero-tagline">Reliable IT Solutions, CCTV Installation &amp; Technical Support — serving homes and businesses across Kenya with trusted expertise.</p>
+        <div class="hero-contact">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +254 724 310 971
+        </div>
+        <div class="hero-actions">
+          <a href="tel:+254724310971" class="btn-primary">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Hire Me Now
+          </a>
+          <a href="#services" class="btn-outline">
+            View Services
+            <svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-img-wrap">
+          <img src="assets/profile.jpg" alt="IT Technician & CCTV Specialist" loading="eager">
+          <div class="hero-img-overlay"></div>
+          <div class="hero-scan"></div>
+        </div>
+        <div class="hero-float-badge">
+          ✅ Certified<br>IT Specialist
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-val">100+</div>
+            <div class="hero-stat-lbl">Clients Served</div>
+          </div>
+          <div>
+            <div class="hero-stat-val">5★</div>
+            <div class="hero-stat-lbl">Avg Rating</div>
+          </div>
+          <div>
+            <div class="hero-stat-val">24hr</div>
+            <div class="hero-stat-lbl">Response</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-inner">
+      <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Licensed & Insured</div>
+      <div class="trust-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Same-Day Service Available</div>
+      <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Dahua Certified Installer</div>
+      <div class="trust-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>100% Satisfaction Guarantee</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about-sec sec" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img reveal">
+        <div class="about-img-main">
+          <img src="assets/work1.jpg" alt="IT Technician at work" loading="lazy">
+        </div>
+        <div class="about-exp-badge">
+          <div class="about-exp-num">5+</div>
+          <div class="about-exp-lbl">Years Experience</div>
+        </div>
+        <div class="about-cert">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          Dahua Certified
+        </div>
+      </div>
+      <div class="about-content reveal">
+        <div class="sec-badge">About Me</div>
+        <h2 class="sec-title">Trusted IT Expert<br><span>Based in Kenya</span></h2>
+        <p class="sec-desc" style="margin-bottom:1.25rem">I am a dedicated and professional IT technician specializing in CCTV installation, computer repair, and software installation for both laptops and desktop systems.</p>
+        <p class="sec-desc" style="margin-bottom:1.75rem">I provide reliable, efficient, and practical solutions tailored to meet both personal and business needs. Every project is handled with professionalism, attention to detail, and a commitment to achieving the best results.</p>
+        <div class="about-list">
+          <div class="about-item"><div class="about-check"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>CCTV installation, configuration &amp; remote monitoring setup</div>
+          <div class="about-item"><div class="about-check"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>Computer repair, hardware diagnostics &amp; upgrades</div>
+          <div class="about-item"><div class="about-check"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>OS installation, software setup &amp; virus removal</div>
+          <div class="about-item"><div class="about-check"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>Networking, cable management &amp; POE setup</div>
+          <div class="about-item"><div class="about-check"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>Fast turnaround &amp; on-site support across Nairobi</div>
+        </div>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap">
+          <a href="#contact" class="btn-primary">Get a Quote</a>
+          <a href="shop.html" class="btn-outline">Shop ICT Products</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-sec sec" id="services">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <div class="sec-badge">What I Do</div>
+      <h2 class="sec-title">Professional <span>ICT Services</span></h2>
+      <p class="sec-desc">Comprehensive technical support for homes and businesses — from CCTV to computer repairs, I've got you covered.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card reveal">
+        <div class="svc-card-img"><img src="assets/cctv-install.jpg" alt="CCTV Installation" loading="lazy"></div>
+        <div class="svc-card-body">
+          <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div>
+          <div class="svc-card-title">CCTV Installation &amp; Configuration</div>
+          <div class="svc-card-desc">Full CCTV system installation, cable routing, NVR/DVR configuration, remote viewing setup via mobile app. Dahua specialist.</div>
+        </div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-card-img"><img src="assets/computer-repair.jpg" alt="Computer Repair" loading="lazy"></div>
+        <div class="svc-card-body">
+          <div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg></div>
+          <div class="svc-card-title">Computer Repair &amp; Maintenance</div>
+          <div class="svc-card-desc">Diagnosis and repair of laptops and desktops — screen replacement, keyboard, motherboard, overheating, and more.</div>
+        </div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-card-img"><img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=600&h=340&fit=crop" alt="Software Installation" loading="lazy"></div>
+        <div class="svc-card-body">
+          <div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+          <div class="svc-card-title">Software Installation &amp; Troubleshooting</div>
+          <div class="svc-card-desc">Installation of MS Office, antivirus, drivers, and all business software. Troubleshooting crashes, errors &amp; performance issues.</div>
+        </div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-card-img"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=340&fit=crop" alt="OS Installation" loading="lazy"></div>
+        <div class="svc-card-body">
+          <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></svg></div>
+          <div class="svc-card-title">Operating System Installation</div>
+          <div class="svc-card-desc">Clean installation of Windows 10/11, driver setup, system optimization and activation. Fast and reliable OS deployment.</div>
+        </div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-card-img"><img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&h=340&fit=crop" alt="Networking" loading="lazy"></div>
+        <div class="svc-card-body">
+          <div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg></div>
+          <div class="svc-card-title">Networking &amp; Cable Management</div>
+          <div class="svc-card-desc">LAN/WAN setup, WiFi configuration, POE switch installation, structured cabling and network troubleshooting.</div>
+        </div>
+      </div>
+      <div class="svc-card reveal">
+        <div class="svc-card-img"><img src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=600&h=340&fit=crop" alt="Virus Removal" loading="lazy"></div>
+        <div class="svc-card-body">
+          <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="svc-card-title">Virus Removal &amp; System Upgrade</div>
+          <div class="svc-card-desc">Complete malware removal, RAM/SSD upgrades, system cleanup and performance optimization to breathe new life into old machines.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-sec sec" id="skills">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-badge">Expertise</div>
+      <h2 class="sec-title">Technical <span>Skill Set</span></h2>
+      <p class="sec-desc">Years of hands-on experience across CCTV, hardware, software and networking.</p>
+    </div>
+    <div class="skills-grid reveal">
+      <div>
+        <div class="skill-item"><div class="skill-header"><span class="skill-name">CCTV Systems &amp; Surveillance</span><span class="skill-pct">95%</span></div><div class="skill-bar"><div class="skill-fill" data-w="95"></div></div></div>
+        <div class="skill-item" style="margin-top:1.5rem"><div class="skill-header"><span class="skill-name">Computer Hardware Repair</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" data-w="90"></div></div></div>
+        <div class="skill-item" style="margin-top:1.5rem"><div class="skill-header"><span class="skill-name">Software Installation &amp; Support</span><span class="skill-pct">92%</span></div><div class="skill-bar"><div class="skill-fill" data-w="92"></div></div></div>
+      </div>
+      <div>
+        <div class="skill-item"><div class="skill-header"><span class="skill-name">Networking Basics &amp; LAN Setup</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></div>
+        <div class="skill-item" style="margin-top:1.5rem"><div class="skill-header"><span class="skill-name">OS Installation &amp; Configuration</span><span class="skill-pct">95%</span></div><div class="skill-bar"><div class="skill-fill" data-w="95"></div></div></div>
+        <div class="skill-item" style="margin-top:1.5rem"><div class="skill-header"><span class="skill-name">Troubleshooting &amp; Diagnostics</span><span class="skill-pct">93%</span></div><div class="skill-bar"><div class="skill-fill" data-w="93"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects-sec sec" id="projects">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <div class="sec-badge">Portfolio</div>
+      <h2 class="sec-title">Recent <span>Projects</span></h2>
+      <p class="sec-desc">Real installations and repairs — proof of quality work delivered across Nairobi.</p>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-card reveal">
+        <div class="proj-img"><img src="assets/proj1.jpg" alt="CCTV Business Installation" loading="lazy"><span class="proj-tag">CCTV</span></div>
+        <div class="proj-body"><div class="proj-title">16-Channel Business CCTV Setup</div><div class="proj-desc">Full Dahua IP CCTV installation for a warehouse — 7 cameras, NVR, remote monitoring via mobile app, night vision.</div></div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-img"><img src="assets/proj2.jpg" alt="CCTV Multi-site" loading="lazy"><span class="proj-tag">CCTV</span></div>
+        <div class="proj-body"><div class="proj-title">Multi-Site Surveillance System</div><div class="proj-desc">10-camera outdoor CCTV with POE switch, structured cabling and real-time monitoring on NEC display for a yard.</div></div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-img"><img src="assets/proj3.jpg" alt="Computer Setup" loading="lazy"><span class="proj-tag">IT Support</span></div>
+        <div class="proj-body"><div class="proj-title">Network Cable Testing &amp; OS Setup</div><div class="proj-desc">Full network cable testing, OS installation and system configuration for a small business office setup.</div></div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-img"><img src="assets/cctv-product.jpg" alt="CCTV Products Supply" loading="lazy"><span class="proj-tag">Supply</span></div>
+        <div class="proj-body"><div class="proj-title">Dahua Smart Dual Light Camera Supply</div><div class="proj-desc">Supply and installation of Dahua ECO Series Smart Dual Light Network cameras — IP67, H.265+, mobile app enabled.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-sec" id="testimonials">
+  <div class="container">
+    <div class="sec-head center reveal" style="margin-bottom:3rem">
+      <div class="sec-badge">Reviews</div>
+      <h2 class="sec-title" style="color:#fff">What Clients <span style="color:var(--cyan)">Say</span></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="testi-text">"Excellent CCTV installation! He set up 8 cameras at our warehouse in Nairobi and configured everything remotely. Very professional and clean cable work."</p>
+        <div class="testi-author"><div class="testi-avatar">JK</div><div><div class="testi-name">James Kamau</div><div class="testi-role">Warehouse Manager, Industrial Area</div></div></div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="testi-text">"Fixed my laptop that wouldn't boot, installed Windows 11 and all drivers. Very fast — same day service! Honest pricing and great customer service."</p>
+        <div class="testi-author"><div class="testi-avatar">GW</div><div><div class="testi-name">Grace Wanjiku</div><div class="testi-role">Teacher, Westlands</div></div></div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+        <p class="testi-text">"Set up our entire office network and CCTV system. The work was clean, on-time, and he explained everything clearly. Highly recommended for any business."</p>
+        <div class="testi-author"><div class="testi-avatar">PM</div><div><div class="testi-name">Peter Mwangi</div><div class="testi-role">Business Owner, Westlands</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-sec sec" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="sec-badge">Get In Touch</div>
+        <h2 class="contact-info-title" style="font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;margin-bottom:.875rem">Let's Work<br><span style="color:var(--blue)">Together</span></h2>
+        <p class="contact-info-desc">Need CCTV installation, computer repair or IT support? Reach out today for a free quote. Available across Nairobi and surrounding areas.</p>
+        <div class="contact-details">
+          <div class="c-row"><div class="c-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="c-lbl">Phone / WhatsApp</div><div class="c-val"><a href="tel:+254724310971">+254 724 310 971</a></div></div></div>
+          <div class="c-row"><div class="c-icon"><svg viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div><div><div class="c-lbl">Email</div><div class="c-val"><a href="mailto:info@optimatechnologies.co.ke">info@optimatechnologies.co.ke</a></div></div></div>
+          <div class="c-row"><div class="c-icon"><svg viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="c-lbl">Location</div><div class="c-val">Nairobi, Kenya</div></div></div>
+        </div>
+        <a href="https://wa.me/254724310971?text=Hello%2C%20I%20need%20IT%20support" target="_blank" class="whatsapp-btn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          Chat on WhatsApp
+        </a>
+      </div>
+      <div class="reveal">
+        <div class="contact-form">
+          <h3 style="font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:700;margin-bottom:1.5rem;color:var(--dark)">Send a Message</h3>
+          <div class="form-success" id="formOk">✓ Message sent! I'll get back to you within 24 hours.</div>
+          <form onsubmit="sendMsg(event)">
+            <div class="form-row">
+              <div class="form-group"><label class="form-label">Name *</label><input class="form-ctrl" name="name" placeholder="Your full name" required></div>
+              <div class="form-group"><label class="form-label">Phone *</label><input class="form-ctrl" name="phone" placeholder="+254 7XX XXX XXX" required></div>
+            </div>
+            <div class="form-group"><label class="form-label">Email</label><input class="form-ctrl" name="email" type="email" placeholder="you@example.com"></div>
+            <div class="form-group">
+              <label class="form-label">Service Needed</label>
+              <select class="form-ctrl" name="service">
+                <option value="">Select a service</option>
+                <option>CCTV Installation</option>
+                <option>Computer Repair</option>
+                <option>Software Installation</option>
+                <option>OS Installation</option>
+                <option>Virus Removal</option>
+                <option>System Upgrade</option>
+                <option>Networking</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group"><label class="form-label">Message *</label><textarea class="form-ctrl" name="message" rows="4" placeholder="Describe your issue or request..." required style="resize:vertical"></textarea></div>
+            <button type="submit" class="btn-primary" style="width:100%;justify-content:center">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><img src="assets/logo.png" alt="Optima Technologies"></div>
+        <p class="footer-desc">Professional IT Technician &amp; CCTV Specialist based in Nairobi, Kenya. Reliable solutions for homes and businesses.</p>
+      </div>
+      <div>
+        <div class="footer-col-h">Quick Links</div>
+        <div class="footer-links">
+          <a href="index.html" class="footer-lnk">Home</a>
+          <a href="#about" class="footer-lnk">About</a>
+          <a href="#services" class="footer-lnk">Services</a>
+          <a href="#projects" class="footer-lnk">Projects</a>
+          <a href="shop.html" class="footer-lnk">ICT Shop</a>
+          <a href="contact.html" class="footer-lnk">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-h">Contact</div>
+        <div class="footer-links">
+          <span class="footer-lnk">📞 +254 724 310 971</span>
+          <span class="footer-lnk">📧 info@optimatechnologies.co.ke</span>
+          <span class="footer-lnk">📍 Nairobi, Kenya</span>
+          <a href="https://wa.me/254724310971" target="_blank" class="footer-lnk" style="color:#25d366">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© <span id="yr"></span> Optima Technologies. Built by Klints Solutions.</p>
+      <div class="footer-links-row">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/254724310971?text=Hello%2C%20I%20need%20IT%20support" target="_blank" class="float-wa" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+</a>
+
+<!-- SCROLL TOP -->
+<button class="scroll-top" id="sTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// Nav scroll
+const nav = document.getElementById('nav');
+const sTop = document.getElementById('sTop');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+  sTop.classList.toggle('show', window.scrollY > 400);
+}, {passive: true});
+
+// Mobile nav
+function openMob() { document.getElementById('mobNav').classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeMob() { document.getElementById('mobNav').classList.remove('open'); document.body.style.overflow = ''; }
+
+// Scroll reveal
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
+}, {threshold: 0.1, rootMargin: '0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Skill bars
+const skillObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.skill-fill').forEach(bar => {
+        bar.style.width = bar.dataset.w + '%';
+      });
+      skillObs.unobserve(e.target);
+    }
+  });
+}, {threshold: 0.3});
+document.querySelectorAll('.skills-grid').forEach(el => skillObs.observe(el));
+
+// Contact form
+function sendMsg(e) {
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  const g = k => (fd.get(k) || '').trim();
+  const sub = encodeURIComponent('IT Support Request from ' + g('name'));
+  const body = encodeURIComponent(`IT Support Request\n\nName: ${g('name')}\nPhone: ${g('phone')}\nEmail: ${g('email') || 'N/A'}\nService: ${g('service') || 'N/A'}\n\nMessage:\n${g('message')}`);
+  window.location.href = `mailto:info@optimatechnologies.co.ke?subject=${sub}&body=${body}`;
+  document.getElementById('formOk').classList.add('show');
+  e.target.reset();
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICT Shop — Optima Technologies Kenya</title>
+<meta name="description" content="Buy quality CCTV cameras, computers, networking equipment and ICT accessories in Kenya. Dahua, HP, and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#0f52ba;--blue-lt:#1a6fe8;--cyan:#00b4d8;--dark:#0a0f1e;--white:#fff;--off:#f8faff;--muted:#6b7280;--border:#e2e8f0;--radius:12px;--shadow:0 4px 24px rgba(15,82,186,.10);--shadow-lg:0 12px 48px rgba(15,82,186,.18)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:#fff;color:var(--dark);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+h1,h2,h3,h4{font-family:'Syne',sans-serif;line-height:1.2}
+.container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
+.reveal.vis{opacity:1;transform:translateY(0)}
+
+/* NAV — reuse from index */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 0;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);box-shadow:0 2px 20px rgba(0,0,0,.08)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.nav-logo img{height:38px;width:auto;object-fit:contain}
+.nav-links{display:none}
+@media(min-width:1024px){.nav-links{display:flex;align-items:center;gap:.25rem}}
+.nav-link{padding:.5rem .875rem;font-size:.875rem;font-weight:500;color:var(--dark);border-radius:8px;transition:all .2s}
+.nav-link:hover,.nav-link.active{color:var(--blue);background:rgba(15,82,186,.07)}
+.nav-cta{background:var(--blue);color:#fff;padding:.625rem 1.5rem;border-radius:999px;font-size:.875rem;font-weight:600;transition:all .2s;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:.375rem}
+.nav-cta:hover{background:var(--blue-lt);transform:translateY(-1px)}
+.hamburger{display:flex;flex-direction:column;gap:5px;padding:.5rem;cursor:pointer;border:none;background:none}
+@media(min-width:1024px){.hamburger{display:none}}
+.hamburger span{display:block;width:22px;height:2px;background:var(--dark);border-radius:2px}
+.mob-nav{position:fixed;inset:0;background:#fff;z-index:999;display:flex;flex-direction:column;padding:2rem;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1)}
+.mob-nav.open{transform:translateX(0)}
+.mob-close{align-self:flex-end;width:40px;height:40px;background:var(--off);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;border:none;margin-bottom:2.5rem}
+.mob-link{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:700;color:var(--dark);padding:.75rem 0;border-bottom:1px solid var(--border);display:block}
+.mob-cta{margin-top:2rem;background:var(--blue);color:#fff;padding:1rem 2rem;border-radius:999px;font-weight:600;text-align:center;display:block}
+
+/* PAGE HERO */
+.page-hero{background:linear-gradient(135deg,#0a0f1e 0%,#0f2d5e 100%);padding:8rem 0 4rem;text-align:center;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(0,180,216,.15) 0%,transparent 50%),radial-gradient(circle at 80% 50%,rgba(15,82,186,.15) 0%,transparent 50%);pointer-events:none}
+.page-hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.1);color:var(--cyan);padding:.375rem 1rem;border-radius:999px;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem;border:1px solid rgba(255,255,255,.15)}
+.page-hero h1{font-size:clamp(2rem,4vw,3rem);font-weight:800;color:#fff;margin-bottom:.875rem}
+.page-hero p{font-size:1rem;color:rgba(255,255,255,.65);max-width:480px;margin:0 auto 1.5rem;line-height:1.7}
+.breadcrumb{display:flex;align-items:center;gap:.5rem;justify-content:center;font-size:.8125rem;color:rgba(255,255,255,.5)}
+.breadcrumb a{color:var(--cyan)}
+.breadcrumb span{color:rgba(255,255,255,.3)}
+
+/* FILTERS */
+.filters-bar{background:#fff;border-bottom:1px solid var(--border);padding:1.25rem 0;position:sticky;top:72px;z-index:50}
+.filters-inner{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap}
+.filter-btn{padding:.5rem 1.25rem;border-radius:999px;font-size:.8125rem;font-weight:600;border:1.5px solid var(--border);background:#fff;color:var(--muted);cursor:pointer;transition:all .2s}
+.filter-btn:hover,.filter-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+.search-wrap{margin-left:auto;position:relative}
+.search-wrap svg{position:absolute;left:.75rem;top:50%;transform:translateY(-50%);width:1rem;height:1rem;stroke:var(--muted);fill:none;stroke-width:2;stroke-linecap:round;pointer-events:none}
+.search-input{padding:.5rem .75rem .5rem 2.25rem;border:1.5px solid var(--border);border-radius:999px;font-size:.8125rem;font-family:'Outfit',sans-serif;outline:none;width:220px;transition:border .2s}
+.search-input:focus{border-color:var(--blue)}
+
+/* PRODUCTS GRID */
+.shop-sec{padding:3.5rem 0 5rem;background:var(--off)}
+.shop-grid{display:grid;gap:1.5rem;grid-template-columns:1fr}
+@media(min-width:500px){.shop-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:900px){.shop-grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1200px){.shop-grid{grid-template-columns:repeat(4,1fr)}}
+
+.prod-card{background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);transition:all .3s;display:flex;flex-direction:column}
+.prod-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:rgba(15,82,186,.2)}
+.prod-img{aspect-ratio:1;overflow:hidden;background:var(--off);position:relative}
+.prod-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.prod-card:hover .prod-img img{transform:scale(1.05)}
+.prod-badge{position:absolute;top:.75rem;left:.75rem;font-size:.65rem;font-weight:700;padding:.2rem .625rem;border-radius:999px;text-transform:uppercase}
+.badge-new{background:#10b981;color:#fff}
+.badge-hot{background:#ef4444;color:#fff}
+.badge-sale{background:#f59e0b;color:#fff}
+.prod-body{padding:1.125rem;flex:1;display:flex;flex-direction:column}
+.prod-cat{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:.375rem}
+.prod-title{font-family:'Syne',sans-serif;font-size:.9375rem;font-weight:700;color:var(--dark);margin-bottom:.375rem;line-height:1.3;flex:1}
+.prod-desc{font-size:.8rem;color:var(--muted);line-height:1.55;margin-bottom:.875rem}
+.prod-price-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:.875rem}
+.prod-price{font-family:'Syne',sans-serif;font-size:1.125rem;font-weight:800;color:var(--blue)}
+.prod-old{font-size:.8rem;color:var(--muted);text-decoration:line-through;margin-left:.375rem}
+.prod-actions{display:flex;gap:.5rem}
+.btn-cart{flex:1;background:var(--blue);color:#fff;padding:.625rem;border-radius:8px;font-size:.8125rem;font-weight:600;border:none;cursor:pointer;transition:all .2s}
+.btn-cart:hover{background:var(--blue-lt);transform:translateY(-1px)}
+.btn-wa{background:#25d366;color:#fff;padding:.625rem .75rem;border-radius:8px;border:none;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center}
+.btn-wa:hover{background:#20b858}
+.btn-wa svg{width:1rem;height:1rem;fill:#fff}
+
+/* CART TOAST */
+.cart-toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);background:var(--dark);color:#fff;padding:.75rem 1.5rem;border-radius:999px;font-size:.875rem;font-weight:500;opacity:0;transition:all .3s;pointer-events:none;z-index:999;white-space:nowrap}
+.cart-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* FLOATING WA */
+.float-wa{position:fixed;bottom:1.75rem;right:1.75rem;z-index:99;width:3.5rem;height:3.5rem;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.5);transition:all .2s}
+.float-wa:hover{transform:scale(1.1)}
+.float-wa svg{width:1.75rem;height:1.75rem;fill:#fff}
+
+/* FOOTER */
+.footer{background:var(--dark);padding:3rem 0 1.5rem}
+.footer-simple{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:2rem;margin-bottom:1.5rem}
+.footer-logo img{height:36px;filter:brightness(0) invert(1)}
+.footer-links-row{display:flex;gap:1.5rem;flex-wrap:wrap}
+.footer-links-row a{font-size:.875rem;color:rgba(255,255,255,.55);transition:color .2s}
+.footer-links-row a:hover{color:var(--cyan)}
+.footer-copy{font-size:.75rem;color:rgba(255,255,255,.35);text-align:center}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><img src="assets/logo.png" alt="Optima Technologies"></a>
+      <ul class="nav-links">
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href="index.html#about">About</a></li>
+        <li><a class="nav-link" href="index.html#services">Services</a></li>
+        <li><a class="nav-link active" href="shop.html">Shop</a></li>
+        <li><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+      <div style="display:flex;align-items:center;gap:.75rem">
+        <a href="tel:+254724310971" class="nav-cta">📞 Hire Me</a>
+        <button class="hamburger" onclick="openMob()"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="mob-nav" id="mobNav">
+  <button class="mob-close" onclick="closeMob()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  <a href="index.html" class="mob-link">Home</a>
+  <a href="index.html#services" class="mob-link">Services</a>
+  <a href="shop.html" class="mob-link">Shop</a>
+  <a href="contact.html" class="mob-link">Contact</a>
+  <a href="tel:+254724310971" class="mob-cta">📞 Call Now</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container" style="position:relative;z-index:1">
+    <div class="page-hero-badge">🛒 ICT Products</div>
+    <h1>Quality ICT Products<br>Delivered in Kenya</h1>
+    <p>CCTV cameras, computers, networking gear and accessories — all sourced and supplied with professional installation available.</p>
+    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>ICT Shop</span></div>
+  </div>
+</div>
+
+<!-- FILTERS -->
+<div class="filters-bar">
+  <div class="container">
+    <div class="filters-inner">
+      <button class="filter-btn active" onclick="filterProd('all',this)">All Products</button>
+      <button class="filter-btn" onclick="filterProd('cctv',this)">CCTV &amp; Security</button>
+      <button class="filter-btn" onclick="filterProd('networking',this)">Networking</button>
+      <button class="filter-btn" onclick="filterProd('computers',this)">Computers</button>
+      <button class="filter-btn" onclick="filterProd('accessories',this)">Accessories</button>
+      <div class="search-wrap">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input class="search-input" id="searchInput" placeholder="Search products..." oninput="searchProd(this.value)">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SHOP -->
+<section class="shop-sec">
+  <div class="container">
+    <div class="shop-grid" id="shopGrid"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-simple">
+      <a href="index.html" class="footer-logo"><img src="assets/logo.png" alt="Optima Technologies"></a>
+      <div class="footer-links-row">
+        <a href="index.html">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="shop.html">Shop</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://wa.me/254724310971" target="_blank" style="color:#25d366">WhatsApp</a>
+      </div>
+    </div>
+    <p class="footer-copy">© <span id="yr"></span> Optima Technologies. All rights reserved.</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/254724310971" target="_blank" class="float-wa"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></a>
+<div class="cart-toast" id="cartToast"></div>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+function openMob(){document.getElementById('mobNav').classList.add('open');document.body.style.overflow='hidden'}
+function closeMob(){document.getElementById('mobNav').classList.remove('open');document.body.style.overflow=''}
+
+// Products sourced from territories.co.ke categories
+const PRODUCTS = [
+  {id:1,cat:'cctv',badge:'hot',title:'Dahua Smart Dual Light Bullet Camera 2MP',desc:'IP67, H.265+, Smart Dual Light, Mobile App, Full HD 1080p. Ideal for warehouses and shops.',price:4500,old:5200,img:'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=400&h=400&fit=crop'},
+  {id:2,cat:'cctv',badge:'new',title:'Dahua 8-Channel NVR Recorder',desc:'8CH NVR with H.265+ compression, supports up to 8MP cameras, HDMI output, mobile viewing.',price:12500,old:14000,img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop'},
+  {id:3,cat:'cctv',badge:'',title:'4-Channel DVR Kit — Full HD',desc:'4-channel DVR with 4 cameras, cables, power supply — complete plug and play CCTV kit.',price:18000,old:22000,img:'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop'},
+  {id:4,cat:'cctv',badge:'new',title:'POE Network Switch 8-Port',desc:'8-port 10/100Mbps POE switch for IP cameras. Supports 150m POE transmission distance.',price:3800,old:0,img:'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=400&h=400&fit=crop'},
+  {id:5,cat:'computers',badge:'hot',title:'HP Laptop 15.6" — Core i5 8GB 256SSD',desc:'Refurbished HP laptop, Windows 11 installed, excellent condition. Ideal for home and office.',price:32000,old:38000,img:'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop'},
+  {id:6,cat:'computers',badge:'',title:'Desktop PC — Core i3 4GB 500HDD',desc:'Dell Optiplex desktop, Windows 10, keyboard & mouse included. Great for office work.',price:18000,old:22000,img:'https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=400&h=400&fit=crop'},
+  {id:7,cat:'computers',badge:'new',title:'SSD 256GB — Upgrade Your Laptop',desc:'Fast Samsung/Kingston SSD. Speed up your computer by up to 5x. Installation included.',price:3500,old:4200,img:'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=400&fit=crop'},
+  {id:8,cat:'computers',badge:'',title:'RAM 8GB DDR4 Laptop/Desktop',desc:'Upgrade your RAM for faster multitasking. Compatible with most laptops and desktops.',price:2800,old:3500,img:'https://images.unsplash.com/photo-1591488320449-011701bb6704?w=400&h=400&fit=crop'},
+  {id:9,cat:'networking',badge:'new',title:'TP-Link WiFi Router AC1200',desc:'Dual-band AC1200 wireless router, 4 antennas, parental controls, easy setup. Covers 120m².',price:3200,old:3800,img:'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=400&h=400&fit=crop'},
+  {id:10,cat:'networking',badge:'',title:'CAT6 Cable 305m Box — Indoor',desc:'High-quality CAT6 UTP cable roll for structured cabling and CCTV installations.',price:7500,old:9000,img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop'},
+  {id:11,cat:'networking',badge:'hot',title:'Network Cable Tester Tool',desc:'Professional RJ45/RJ11 cable tester for LAN and telephone cables. LED indicators.',price:1200,old:1600,img:'https://images.unsplash.com/photo-1563770660941-10a63607780b?w=400&h=400&fit=crop'},
+  {id:12,cat:'accessories',badge:'sale',title:'UPS 850VA Backup Power',desc:'APC/Prolink UPS for PC and CCTV systems. Protects against power surges and outages.',price:8500,old:11000,img:'https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=400&h=400&fit=crop'},
+  {id:13,cat:'accessories',badge:'',title:'HDMI Cable 10m — High Speed',desc:'10-metre HDMI 2.0 cable for CCTV monitors and PC displays. 4K support.',price:850,old:1200,img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop'},
+  {id:14,cat:'accessories',badge:'new',title:'USB Flash Drive 32GB',desc:'Sandisk Cruzer Blade 32GB USB 3.0 flash drive. Fast data transfer.',price:650,old:900,img:'https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=400&fit=crop'},
+  {id:15,cat:'accessories',badge:'',title:'Laptop Cooling Pad',desc:'Dual-fan laptop cooling pad for 14–17" laptops. USB powered, adjustable height.',price:1800,old:2400,img:'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop'},
+  {id:16,cat:'cctv',badge:'new',title:'NEC 43" CCTV Monitor Display',desc:'43" Full HD NEC commercial display for CCTV monitoring rooms. HDMI/VGA inputs.',price:42000,old:50000,img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop'},
+];
+
+let current = [...PRODUCTS];
+
+function renderProducts(list) {
+  const grid = document.getElementById('shopGrid');
+  if (!list.length) {
+    grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--muted);padding:3rem">No products found.</p>';
+    return;
+  }
+  grid.innerHTML = list.map(p => `
+    <div class="prod-card reveal" data-cat="${p.cat}">
+      <div class="prod-img">
+        <img src="${p.img}" alt="${p.title}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&h=400&fit=crop'">
+        ${p.badge ? `<span class="prod-badge badge-${p.badge}">${p.badge==='hot'?'🔥 Hot':p.badge==='new'?'✨ New':'🏷️ Sale'}</span>` : ''}
+      </div>
+      <div class="prod-body">
+        <div class="prod-cat">${p.cat==='cctv'?'CCTV & Security':p.cat==='networking'?'Networking':p.cat==='computers'?'Computers':'Accessories'}</div>
+        <div class="prod-title">${p.title}</div>
+        <div class="prod-desc">${p.desc}</div>
+        <div class="prod-price-row">
+          <div>
+            <span class="prod-price">KES ${p.price.toLocaleString()}</span>
+            ${p.old ? `<span class="prod-old">KES ${p.old.toLocaleString()}</span>` : ''}
+          </div>
+        </div>
+        <div class="prod-actions">
+          <button class="btn-cart" onclick="addToCart('${p.title}','${p.price}')">Add to Cart</button>
+          <a href="https://wa.me/254724310971?text=Hi%2C%20I%20want%20to%20order%3A%20${encodeURIComponent(p.title)}%20at%20KES%20${p.price}" target="_blank" class="btn-wa"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  // Re-observe reveals
+  document.querySelectorAll('.reveal:not(.vis)').forEach(el => io.observe(el));
+}
+
+function filterProd(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  current = cat === 'all' ? [...PRODUCTS] : PRODUCTS.filter(p => p.cat === cat);
+  renderProducts(current);
+}
+
+function searchProd(q) {
+  const lq = q.toLowerCase();
+  renderProducts(current.filter(p => p.title.toLowerCase().includes(lq) || p.desc.toLowerCase().includes(lq)));
+}
+
+function addToCart(title, price) {
+  const t = document.getElementById('cartToast');
+  t.textContent = `✓ Added: ${title.substring(0,35)}... — KES ${Number(price).toLocaleString()}`;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
+}, {threshold: 0.1});
+
+renderProducts(PRODUCTS);
+</script>
+</body>
+</html>
